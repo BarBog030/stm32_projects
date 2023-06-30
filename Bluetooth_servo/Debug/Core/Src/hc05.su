@@ -1,0 +1,2 @@
+../Core/Src/hc05.cpp:10:1:HC05::HC05(pinStruct_t*, USART_TypeDef*, uint32_t, uint32_t, uint32_t)	48	static
+../Core/Src/hc05.cpp:37:6:char HC05::GetChar()	16	static

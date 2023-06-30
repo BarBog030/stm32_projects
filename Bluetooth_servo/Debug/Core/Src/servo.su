@@ -1,0 +1,2 @@
+../Core/Src/servo.cpp:10:1:Servo::Servo(pinStruct_t*, TIM_TypeDef*, uint8_t, uint8_t)	72	static
+../Core/Src/servo.cpp:42:6:void Servo::TurnShafts(uint32_t)	16	static
