@@ -1,0 +1,2 @@
+../Core/Src/main.cpp:3:5:int main()	160	static
+../Core/Src/main.cpp:65:17:void SysTick_Handler()	8	static
