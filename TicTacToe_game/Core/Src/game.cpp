@@ -27,7 +27,7 @@ typedef struct
 	char winner;
 }gameResult_t;
 
-static void UpdateGameBoard(char* pressedKey, char gameBoard[Board::numberOfRows][Board::numberOfCols])
+static void UpdateGameBoard(char* pressedKey, char gameBoard[Board::numberOfRows][Board::numberOfCols], uint8_t* gameBoardUpdateCounter)
 {
 	bool playerMadeAnInput = false;
 
@@ -37,14 +37,15 @@ static void UpdateGameBoard(char* pressedKey, char gameBoard[Board::numberOfRows
 		{
 			if(*pressedKey == gameBoard[rowIndex][colIndex])
 			{
+				(*gameBoardUpdateCounter)++;
 				switch(player)
 				{
 					case PLAYER_1:
-						gameBoard[rowIndex][colIndex] = 'X';
+						gameBoard[rowIndex][colIndex] = 'O';
 						player = PLAYER_2;
 						break;
 					case PLAYER_2:
-						gameBoard[rowIndex][colIndex] = 'O';
+						gameBoard[rowIndex][colIndex] = 'X';
 						player = PLAYER_1;
 						break;
 					default:
@@ -64,7 +65,7 @@ static void UpdateGameBoard(char* pressedKey, char gameBoard[Board::numberOfRows
 static void DisplayGameBoard(LCD* lcd, char gameBoard[Board::numberOfRows][Board::numberOfCols])
 {
 	uint8_t rowPos = 1;
-	const uint8_t startingColumnPos = 5;
+	const uint8_t startingColumnPos = 7;
 
 	for(uint8_t rowIndex = 0; rowIndex < Board::numberOfRows; rowIndex++)
 	{
@@ -196,14 +197,14 @@ void Game_DisplayRules(LCD* lcd)
 	lcd->Print("to place X or O to");
 	lcd->SetCursor(3, 0);
 	lcd->Print("the game board");
-	HAL_Delay(1500);
+	HAL_Delay(3000);
 	lcd->Clear();
 	lcd->SetCursor(0, 5);
 	lcd->Print("Rule(2/2)");
 	lcd->SetCursor(1, 0);
-	lcd->Print("X is to player 1");
+	lcd->Print("O is to player 1");
 	lcd->SetCursor(2, 0);
-	lcd->Print("O is to player 2");
+	lcd->Print("X is to player 2");
 	lcd->SetCursor(3, 0);
 	lcd->Print("Players take turns");
 }
@@ -211,7 +212,7 @@ void Game_DisplayRules(LCD* lcd)
 void Game_Start(LCD* lcd, Keypad* keypad)
 {
 	lcd->Clear();
-	lcd->SetCursor(0, 3);
+	lcd->SetCursor(0, 4);
 	lcd->Print("TIC TAC TOE");
 
 	char gameBoard[Board::numberOfRows][Board::numberOfCols] =
@@ -220,6 +221,8 @@ void Game_Start(LCD* lcd, Keypad* keypad)
 		{'4', '|', '5', '|', '6'},
 		{'7', '|', '8', '|', '9'}
 	};
+
+	uint8_t gameBoardUpdateCounter = 0;	//If this counter reaches value 9 - there is no winner
 
 	//Array of function pointers
 	static gameResult_t(*CheckWin[3])(char gameBoard[Board::numberOfRows][Board::numberOfCols]) =
@@ -241,19 +244,28 @@ void Game_Start(LCD* lcd, Keypad* keypad)
 			player = PLAYER_1; //Return first player status to player 1
 			break;
 		}
-		UpdateGameBoard(&pressedKey, gameBoard);
+
+		UpdateGameBoard(&pressedKey, gameBoard, &gameBoardUpdateCounter);
+
+		if(gameBoardUpdateCounter >= 9)
+		{
+			lcd->SetCursor(1, 13);
+			lcd->Print("Draw");
+			break;
+		}
+
 		for(uint8_t i= 0; i < 3; i++)
 		{
 			gameResult_t result = CheckWin[i](gameBoard);
 			if(result.winDetected)
 			{
 				lcd->SetCursor(1, 13);
-				if(result.winner == 'X')
+				if(result.winner == 'O')
 				{
 					lcd->Print("P1 wins");
 					break;
 				}
-				else if(result.winner == 'O')
+				else if(result.winner == 'X')
 				{
 					lcd->Print("P2 wins");
 					break;

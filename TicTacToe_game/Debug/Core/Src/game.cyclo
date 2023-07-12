@@ -1,9 +1,9 @@
-game.cpp:30:13:void UpdateGameBoard(char*, char (*)[5])	7
-game.cpp:64:13:void DisplayGameBoard(LCD*, char (*)[5])	3
-game.cpp:80:21:gameResult_t CheckForHorizontalWin(char (*)[5])	5
-game.cpp:110:21:gameResult_t CheckForVerticalWin(char (*)[5])	5
-game.cpp:140:21:gameResult_t CheckForDiagonalWin(char (*)[5])	5
-game.cpp:162:6:void Game_DisplayIntro(LCD*)	1
-game.cpp:175:6:void Game_DisplayMenu(LCD*)	1
-game.cpp:188:6:void Game_DisplayRules(LCD*)	1
-game.cpp:211:6:void Game_Start(LCD*, Keypad*)	6
+game.cpp:30:13:void UpdateGameBoard(char*, char (*)[5], uint8_t*)	7
+game.cpp:65:13:void DisplayGameBoard(LCD*, char (*)[5])	3
+game.cpp:81:21:gameResult_t CheckForHorizontalWin(char (*)[5])	5
+game.cpp:111:21:gameResult_t CheckForVerticalWin(char (*)[5])	5
+game.cpp:141:21:gameResult_t CheckForDiagonalWin(char (*)[5])	5
+game.cpp:163:6:void Game_DisplayIntro(LCD*)	1
+game.cpp:176:6:void Game_DisplayMenu(LCD*)	1
+game.cpp:189:6:void Game_DisplayRules(LCD*)	1
+game.cpp:212:6:void Game_Start(LCD*, Keypad*)	7

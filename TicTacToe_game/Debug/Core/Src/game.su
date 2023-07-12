@@ -1,9 +1,9 @@
-../Core/Src/game.cpp:30:13:void UpdateGameBoard(char*, char (*)[5])	24	static
-../Core/Src/game.cpp:64:13:void DisplayGameBoard(LCD*, char (*)[5])	24	static
-../Core/Src/game.cpp:80:21:gameResult_t CheckForHorizontalWin(char (*)[5])	32	static
-../Core/Src/game.cpp:110:21:gameResult_t CheckForVerticalWin(char (*)[5])	32	static
-../Core/Src/game.cpp:140:21:gameResult_t CheckForDiagonalWin(char (*)[5])	24	static
-../Core/Src/game.cpp:162:6:void Game_DisplayIntro(LCD*)	16	static
-../Core/Src/game.cpp:175:6:void Game_DisplayMenu(LCD*)	16	static
-../Core/Src/game.cpp:188:6:void Game_DisplayRules(LCD*)	16	static
-../Core/Src/game.cpp:211:6:void Game_Start(LCD*, Keypad*)	48	static
+../Core/Src/game.cpp:30:13:void UpdateGameBoard(char*, char (*)[5], uint8_t*)	32	static
+../Core/Src/game.cpp:65:13:void DisplayGameBoard(LCD*, char (*)[5])	24	static
+../Core/Src/game.cpp:81:21:gameResult_t CheckForHorizontalWin(char (*)[5])	32	static
+../Core/Src/game.cpp:111:21:gameResult_t CheckForVerticalWin(char (*)[5])	32	static
+../Core/Src/game.cpp:141:21:gameResult_t CheckForDiagonalWin(char (*)[5])	24	static
+../Core/Src/game.cpp:163:6:void Game_DisplayIntro(LCD*)	16	static
+../Core/Src/game.cpp:176:6:void Game_DisplayMenu(LCD*)	16	static
+../Core/Src/game.cpp:189:6:void Game_DisplayRules(LCD*)	16	static
+../Core/Src/game.cpp:212:6:void Game_Start(LCD*, Keypad*)	48	static
