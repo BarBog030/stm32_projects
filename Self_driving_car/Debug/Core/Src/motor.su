@@ -1,0 +1,4 @@
+../Core/Src/motor.cpp:10:1:Motor::Motor(pinStruct_t*, pinStruct_t*, pinStruct_t*, TIM_TypeDef*, uint8_t, uint8_t)	112	static
+../Core/Src/motor.cpp:68:6:void Motor::MoveForward(uint32_t)	16	static
+../Core/Src/motor.cpp:75:6:void Motor::MoveBackward(uint32_t)	16	static
+../Core/Src/motor.cpp:82:6:void Motor::Stop()	16	static
