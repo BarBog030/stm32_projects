@@ -9,3 +9,9 @@
    Board used: Nucleo-F446RE
 
    Link to video: https://drive.google.com/file/d/1keBWqXqpR6E5W4ZIW0ICfqLp-XOboi68/view?usp=sharing
+
+3. Self_driving_car folder contains the project of autonomous car which avoid obstacles with help of 3 ultrasonic HCSR04 sensors.
+   Car movement is provided with help of 4 DC motors
+   Board used: Nucleo-F446RE
+
+   Link to video: https://drive.google.com/file/d/1lz56aaBwP3h_9WMmjgezhz-f0q8OHLzU/view?usp=sharing

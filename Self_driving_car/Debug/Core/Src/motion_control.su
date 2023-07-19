@@ -1,0 +1,3 @@
+../Core/Src/motion_control.cpp:30:6:bool ObstacleDetected(HCSR04*, const uint32_t*)	24	static
+../Core/Src/motion_control.cpp:41:9:uint8_t GetPathIndex(HCSR04*, HCSR04*, HCSR04*, const uint32_t*)	64	static
+../Core/Src/motion_control.cpp:76:6:void MoveToFreePath(HCSR04*, HCSR04*, HCSR04*, const uint32_t*, Motor*, Motor*)	40	static

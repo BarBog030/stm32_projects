@@ -68,15 +68,15 @@ Motor::Motor(pinStruct_t* motorPin1,
 void Motor::MoveForward(uint32_t speed)
 {
 	__HAL_TIM_SET_COMPARE(&htim, pwmCh, speed);
-	HAL_GPIO_WritePin(pin1.port, pin1.selectedPin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(pin2.port, pin2.selectedPin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(pin1.port, pin1.selectedPin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(pin2.port, pin2.selectedPin, GPIO_PIN_SET);
 }
 
 void Motor::MoveBackward(uint32_t speed)
 {
 	__HAL_TIM_SET_COMPARE(&htim, pwmCh, speed);
-	HAL_GPIO_WritePin(pin1.port, pin1.selectedPin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(pin2.port, pin2.selectedPin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(pin1.port, pin1.selectedPin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(pin2.port, pin2.selectedPin, GPIO_PIN_RESET);
 }
 
 void Motor::Stop(void)
